@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../Assets/images/header-img.PNG";
 import avatar from "../Assets/images/avatar.png";
@@ -6,38 +6,29 @@ import { ConnectBtn } from "./ConnectBtn";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
+const toRotate = ["Software Engineer", "Mother", "Fitness Lover"];
+const period = 2000;
+
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
-  const toRotate = ["Software Engineer", "Mother", "Fitness Lover"];
-  const period = 2000;
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    const ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => clearInterval(ticker);
-  }, [text]);
-
-  const tick = () => {
+  const tick = useCallback(() => {
     const i = loopNum % toRotate.length;
     const fullText = toRotate[i];
-  
+
     const updatedText = isDeleting
       ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
-  
+
     setText(updatedText);
-  
+
     if (isDeleting) {
       setDelta((prev) => prev / 2);
     }
-  
+
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
       setDelta(period);
@@ -46,7 +37,15 @@ export const Banner = () => {
       setLoopNum((prev) => prev + 1);
       setDelta(500);
     }
-  };
+  }, [text, isDeleting, loopNum]);
+
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => clearInterval(ticker);
+  }, [tick, delta]);
 
   return (
     <section className="banner" id="home">
@@ -60,32 +59,21 @@ export const Banner = () => {
                     Welcome to my Portfolio
                     <img src={avatar} alt="Avatar Img" className="avatar" />
                   </span>
-
                   <h1>
                     {`Hi! I'm Lotta and I'm a...`}
                     <br />
-                    <span
-                      className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "Software Engineer", "Mother", "Fitness Lover" ]'
-                    >
+                    <span className="txt-rotate">
                       <span className="wrap">{text}</span>
                     </span>
                   </h1>
-
                   <p>
-                    I'm Carlotta Monet Island, but you can call me Lotta. It's a pleasure
-                    to meet you and I would love for you to get to know me a little more.
-                    I am a Bay Area native that has experienced living in multiple cities
-                    such as Chicago and Las Vegas. I have two beautiful daughters who mean
-                    the world to me. Some of my passions include dancing, music, fitness,
-                    and, last but certainly not least, learning. I love researching and
-                    teaching myself new things. I love the art of creating something out of
-                    nothing and the learning curve that comes along with that process. Now
-                    that you know a bit about me, feel free to learn more about my skills
-                    and projects!
+                    I'm Carlotta Monet Island, but you can call me Lotta. It's a pleasure to
+                    meet you and I would love for you to get to know me a little more. I am a
+                    Bay Area native that has experienced living in multiple cities such as Chicago
+                    and Las Vegas. I have two beautiful daughters who mean the world to me. Some
+                    of my passions include dancing, music, fitness, and, last but certainly not
+                    least, learning.
                   </p>
-
                   <a href="#connect" className="connect-btn">
                     <ConnectBtn />
                   </a>
