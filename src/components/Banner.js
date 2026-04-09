@@ -6,7 +6,7 @@ import { ConnectBtn } from "./ConnectBtn";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
-const toRotate = ["Software Engineer", "Mother", "Fitness Lover"];
+const toRotate = ["Frontend Engineer", "React Developer", "JavaScript Problem Solver", "Builder of clean, User-Focused Apps"];
 const period = 2000;
 
 export const Banner = () => {
@@ -56,23 +56,18 @@ export const Banner = () => {
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">
-                    Welcome to my Portfolio
+                    Hi, I'm Lotta
                     <img src={avatar} alt="Avatar Img" className="avatar" />
                   </span>
                   <h1>
-                    {`Hi! I'm Lotta and I'm a...`}
+                    {`Frontend Engineer building clean, user-focused web experiences`}
                     <br />
                     <span className="txt-rotate">
                       <span className="wrap">{text}</span>
                     </span>
                   </h1>
                   <p>
-                    I'm Carlotta Monet Island, but you can call me Lotta. It's a pleasure to
-                    meet you and I would love for you to get to know me a little more. I am a
-                    Bay Area native that has experienced living in multiple cities such as Chicago
-                    and Las Vegas. I have two beautiful daughters who mean the world to me. Some
-                    of my passions include dancing, music, fitness, and, last but certainly not
-                    least, learning.
+                  I'm Carlotta Monet Island, but you can call me Lotta. I'm a Bay Area-based frontend engineer focused on building responsive, intuitive applications using React and modern JavaScript. I enjoy turning ideas into real, working products and continuously improving performance, usability, and user experience.
                   </p>
                   <a href="#connect" className="connect-btn">
                     <ConnectBtn />
