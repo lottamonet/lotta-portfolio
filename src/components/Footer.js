@@ -7,11 +7,11 @@ import CarlottaLogo from "../Assets/images/CarlottaLogo.png";
 export const Footer = () => {
   const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-    scrolled= window.scrollY;
+    
     useEffect(() => {
         const onScroll = () => {
        
-            if (scrolled > 50) {
+            if (window.scrollY > 50) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
@@ -28,7 +28,7 @@ export const Footer = () => {
       } 
 
   return (
-    <footer className="footer">
+    <footer className={scrolled ? "scrolled" : ""}>
       <Container>
         <Row className="align-items-center">
           <MailchimpForm />
