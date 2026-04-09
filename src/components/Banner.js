@@ -22,7 +22,7 @@ export const Banner = () => {
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [text, delta]);
+  }, [text]);
 
   const tick = () => {
     const i = loopNum % toRotate.length;
