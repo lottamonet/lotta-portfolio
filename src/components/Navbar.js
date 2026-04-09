@@ -58,7 +58,7 @@ export function NavBar() {
               <div className="social-icon">
                   <a href="https://www.linkedin.com/in/lottamonet" target="_blank" rel="noreferrer noopener"><img src={navIcon1} alt="linkedin" /></a>
                   <a href="https://www.github.com/lottamonet" target="_blank" rel="noreferrer noopener"><img src={navIcon2} alt="github" /></a>
-                  <a href="https://drive.google.com/file/d/1mob-EfAQnHIup-wjouQoLrGjCq7kJrZs/view?usp=sharing" target="_blank" rel="noreferrer noopener"><img src={navIcon3} alt="resume" /></a>
+                  <a href="https://drive.google.com/file/d/1K9t2XFw-R2HtvaNrGv61SK4rEntqPzf9/view?usp=sharing" target="_blank" rel="noreferrer noopener"><img src={navIcon3} alt="resume" /></a>
               </div>
                 <HashLink to='#connect'>
                   <button className="vvd"><span>Let’s Connect</span></button>

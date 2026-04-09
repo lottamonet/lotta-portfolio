@@ -21,8 +21,6 @@ import vsCode from "../Assets/images/vscode.svg";
 import wordpress from "../Assets/images/wordpress.svg";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import arrow1 from "../Assets/images/arrow1.svg";
-import arrow2 from "../Assets/images/arrow2.svg";
 import colorSharp from "../Assets/images/color-sharp.png"
 
 export const Skills = () => {
