@@ -9,12 +9,11 @@ import navIcon3 from "../Assets/images/nav-icon-3.svg";
 export const Footer = () => {
   const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-    const w = window.innerWidth;
-    const h = window.innerHeight;
 
     useEffect(() => {
         const onScroll = () => {
-            if (window.scrollY > 50) {
+           scrolled= window.scrollY;
+            if (scrolled > 50) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
@@ -48,11 +47,11 @@ export const Footer = () => {
             
          
           <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-              <a href="#"><img src={navIcon1} alt="Icon" /></a>
+            {/* <div className="social-icon">
+              <a href="navIconOne"><img src={navIcon1} alt="Icon" /></a>
               <a href="#"><img src={navIcon2} alt="Icon" /></a>
               <a href="#"><img src={navIcon3} alt="Icon" /></a>
-            </div>
+            </div> */}
             <p>Copyright 2022. All Rights Reserved</p>
           </Col>
         </Row>

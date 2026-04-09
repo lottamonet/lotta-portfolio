@@ -16,8 +16,6 @@ import {
 export function NavBar() {
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-    const w = window.innerWidth;
-    const h = window.innerHeight;
 
     useEffect(() => {
         const onScroll = () => {
