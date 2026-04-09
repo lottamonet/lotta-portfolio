@@ -2,17 +2,15 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { MailchimpForm } from "./MailchimpForm";
 import CarlottaLogo from "../Assets/images/CarlottaLogo.png";
-import navIcon1 from "../Assets/images/nav-icon-1.svg";
-import navIcon2 from "../Assets/images/nav-icon-2.svg";
-import navIcon3 from "../Assets/images/nav-icon-3.svg";
+
 
 export const Footer = () => {
   const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-
+    scrolled= window.scrollY;
     useEffect(() => {
         const onScroll = () => {
-           scrolled= window.scrollY;
+       
             if (scrolled > 50) {
                 setScrolled(true);
             } else {
